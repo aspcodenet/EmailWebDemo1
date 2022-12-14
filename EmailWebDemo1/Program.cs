@@ -1,4 +1,5 @@
 using EmailWebDemo1.Data;
+using EmailWebDemo1.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -16,6 +17,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<DataInitializer>();
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
+builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
