@@ -1,0 +1,32 @@
+﻿@page
+@model EmailWebDemo1.Pages.ContactModel
+@{
+}
+@if (Model.Sent)
+{
+    <h2>Tack för att du kontaktade oss</h2>
+    <p>Vi återkommer sannolikt inte alls...vi har annat att göra än att svara på dumma frågor </p>
+}
+else
+{
+
+
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Namn">Namn</label>
+            <input asp-for="Namn" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Header">Ärende</label>
+            <input asp-for="Header" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Message">Meddelande</label>
+            <textarea asp-for="Message" rows="10" cols="50" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Send"/>
+        </div>
+    </form>
+}
