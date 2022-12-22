@@ -9,7 +9,6 @@ namespace EmailWebDemo1.Pages
 
         public void OnGet()
         {
-            //Här sätts i till 0
             int i = 0;
             I = i  + 1;
         }
